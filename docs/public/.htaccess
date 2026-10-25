@@ -6,9 +6,10 @@
 RewriteEngine On
 RewriteBase /
 
-# 1. 强制 HTTPS
+# 1. 规范主域名与强制 HTTPS (www -> non-www & http -> https)
+RewriteCond %{HTTP_HOST} ^www\.netzhenduan\.cc$ [NC,OR]
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(.*)$ https://netzhenduan.cc/$1 [L,R=301]
 
 # 2. 隐藏 .html 后缀 (Clean URLs)
 # 如果请求包含 .html，则外部重定向到不带 .html 的干净 URL

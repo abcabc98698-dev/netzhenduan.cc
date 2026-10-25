@@ -1,5 +1,13 @@
 import { defineConfig } from 'vitepress'
 
+// 搜索引擎站长平台所有权验证（预留钩子：配置后自动生成对应 meta 验证标签，绝不编造虚拟验证码）
+const SEARCH_ENGINE_VERIFICATIONS = {
+  google: process.env.GOOGLE_SITE_VERIFICATION || '',
+  bing: process.env.BING_SITE_VERIFICATION || '',
+  baidu: process.env.BAIDU_SITE_VERIFICATION || '',
+  shenma: process.env.SHENMA_SITE_VERIFICATION || ''
+}
+
 export default defineConfig({
   title: '网络诊断实验室',
   titleTemplate: ':title - netzhenduan.cc 科学上网故障排查',
@@ -9,20 +17,32 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://netzhenduan.cc',
     transformItems(items) {
-      return items.map((item) => ({
-        ...item,
-        lastmod: '2026-10-25T18:00:00+08:00',
-        changefreq: item.url === '' ? 'daily' : 'weekly',
-        priority: item.url === '' ? 1.0 : (item.url.startsWith('airports') || item.url.startsWith('issues') ? 0.9 : 0.8)
-      }))
+      return items
+        .filter((item) => !item.url.includes('404'))
+        .map((item) => ({
+          ...item,
+          lastmod: '2026-10-25T18:00:00+08:00',
+          changefreq: item.url === '' ? 'daily' : 'weekly',
+          priority: item.url === '' ? 1.0 : (item.url.startsWith('airports') || item.url.startsWith('issues') ? 0.9 : 0.8)
+        }))
     }
   },
   transformPageData(pageData) {
+    pageData.frontmatter.head ??= []
+
+    const is404 = pageData.relativePath === '404.md'
+    if (is404) {
+      pageData.frontmatter.head.push([
+        'meta',
+        { name: 'robots', content: 'noindex, nofollow' }
+      ])
+      return
+    }
+
     const canonicalUrl = `https://netzhenduan.cc/${pageData.relativePath}`
       .replace(/index\.md$/, '')
       .replace(/\.md$/, '')
     
-    pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push([
       'link',
       { rel: 'canonical', href: canonicalUrl }
@@ -31,6 +51,41 @@ export default defineConfig({
     const pageTitle = pageData.title || pageData.frontmatter.title || '网络诊断实验室'
     const pageDesc = pageData.description || pageData.frontmatter.description || '专注科学上网连不上、节点超时、订阅失败、Clash/v2ray报错等网络故障深度排查，提供在线网络探针、日志诊断与高可用专线备用方案。'
     const isHome = pageData.relativePath === 'index.md'
+
+    // 1. Robots 搜索引擎抓取指令
+    pageData.frontmatter.head.push([
+      'meta',
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
+    ])
+
+    // 2. Open Graph 社交元数据
+    pageData.frontmatter.head.push(['meta', { property: 'og:title', content: pageTitle }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:description', content: pageDesc }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:url', content: canonicalUrl }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:site_name', content: 'netzhenduan.cc 网络诊断' }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:type', content: isHome ? 'website' : 'article' }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:locale', content: 'zh_CN' }])
+    pageData.frontmatter.head.push(['meta', { property: 'og:image', content: 'https://netzhenduan.cc/avatar.jpg' }])
+
+    // 3. Twitter Card
+    pageData.frontmatter.head.push(['meta', { name: 'twitter:card', content: 'summary_large_image' }])
+    pageData.frontmatter.head.push(['meta', { name: 'twitter:title', content: pageTitle }])
+    pageData.frontmatter.head.push(['meta', { name: 'twitter:description', content: pageDesc }])
+    pageData.frontmatter.head.push(['meta', { name: 'twitter:image', content: 'https://netzhenduan.cc/avatar.jpg' }])
+
+    // 4. 搜索引擎验证代码（若环境变量或配置提供，直接输出到最终 HTML 源码中）
+    if (SEARCH_ENGINE_VERIFICATIONS.google) {
+      pageData.frontmatter.head.push(['meta', { name: 'google-site-verification', content: SEARCH_ENGINE_VERIFICATIONS.google }])
+    }
+    if (SEARCH_ENGINE_VERIFICATIONS.bing) {
+      pageData.frontmatter.head.push(['meta', { name: 'msvalidate.01', content: SEARCH_ENGINE_VERIFICATIONS.bing }])
+    }
+    if (SEARCH_ENGINE_VERIFICATIONS.baidu) {
+      pageData.frontmatter.head.push(['meta', { name: 'baidu-site-verification', content: SEARCH_ENGINE_VERIFICATIONS.baidu }])
+    }
+    if (SEARCH_ENGINE_VERIFICATIONS.shenma) {
+      pageData.frontmatter.head.push(['meta', { name: 'shenma-site-verification', content: SEARCH_ENGINE_VERIFICATIONS.shenma }])
+    }
 
     if (isHome) {
       const websiteSchema = {
@@ -113,11 +168,15 @@ export default defineConfig({
         }
       ]
       let currentPath = 'https://netzhenduan.cc'
+      let currentSectionName = '网络技术排障'
       pathParts.forEach((part, index) => {
         if (part === 'index') return
         currentPath += `/${part}`
         const isLast = index === pathParts.length - 1 || (index === pathParts.length - 2 && pathParts[pathParts.length - 1] === 'index')
         const friendlyName = isLast ? pageTitle : (sectionNameMap[part] || part)
+        if (index === 0 && sectionNameMap[part]) {
+          currentSectionName = sectionNameMap[part]
+        }
         breadcrumbItems.push({
           '@type': 'ListItem',
           'position': breadcrumbItems.length + 1,
@@ -125,6 +184,12 @@ export default defineConfig({
           'item': currentPath
         })
       })
+
+      // 文章发布与修改时间元标签
+      pageData.frontmatter.head.push(['meta', { property: 'article:published_time', content: '2026-10-25T12:00:00+08:00' }])
+      pageData.frontmatter.head.push(['meta', { property: 'article:modified_time', content: '2026-10-25T18:00:00+08:00' }])
+      pageData.frontmatter.head.push(['meta', { property: 'article:author', content: '网络诊断实验室技术专家组' }])
+      pageData.frontmatter.head.push(['meta', { property: 'article:section', content: currentSectionName }])
 
       const isIndex = pageData.relativePath.endsWith('index.md')
       const breadcrumbSchema = {
@@ -174,8 +239,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/avatar.jpg' }],
     ['meta', { name: 'keywords', content: '科学上网无法连接,梯子连不上,机场订阅失败,Clash无法连接,代理速度慢,节点超时,系统代理,TUN模式,网络诊断' }],
     ['meta', { name: 'author', content: 'netzhenduan.cc 网络可观测实验室' }],
-    ['meta', { property: 'og:site_name', content: 'netzhenduan.cc 网络诊断' }],
-    ['meta', { property: 'og:type', content: 'article' }],
     ['meta', { name: 'theme-color', content: '#0f172a' }]
   ],
   themeConfig: {
