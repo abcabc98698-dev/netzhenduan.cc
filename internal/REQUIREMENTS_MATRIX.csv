@@ -1,0 +1,11 @@
+req_id,requirement_desc,applied_scope,target_files,check_method,evidence_criteria,status,gap_notes
+REQ-001,域名与品牌一致性锁定,全站,config.mts/.htaccess,构建检查,域名为netzhenduan.cc无跨站串扰,PASSED,无
+REQ-002,八大一级导航与首页架构,首页与一级栏目,docs/index.md及各栏目index.md,目录扫描与路由测试,8大一级入口全部可达且无孤页,PASSED,无
+REQ-003,暗色网络可观测台设计系统,UI组件与主题,style.css/组件库,视觉与CSS规范核验,深海军蓝/状态灯/等宽字体/无刺眼霓虹,PASSED,无
+REQ-004,交互式纯前端探针控制台,网络诊断页,NetworkProbe.vue,代码与浏览器API测试,具备IP探测/WebRTC/连通性测速/日志解码,PASSED,无
+REQ-005,条件触发容灾备用箱机制,故障排障长文,DisasterRecoveryBox.vue,条件分支检查,排障完成节点故障判定后自然触发专线推荐,PASSED,无
+REQ-006,Apache静态安全跳转与SEO规范,全站与推广外链,.htaccess/sitemap.xml,静态构建与规则核验,Clean URLs/noindex nofollow/sitemap规范,PASSED,无
+REQ-007,阶段0项目基线与台账建立,管理后台,internal/*.csv/json/md,文件存在与字段完整度检查,8大管理文件齐备,IN_PROGRESS,正在落盘
+REQ-008,层级范围设计(一级-二级-三级-文章),全站内容规划,CONTENT_INVENTORY.csv,层级关系与去重审查,按8N-12N标准分阶段扩充,IN_PROGRESS,阶段1推进中
+REQ-009,单页万字深度与12大必查模块,核心长文与入口,各内容markdown文件,字数统计脚本与模块检查,单页10000-15000字且含ASCII决策树,IN_PROGRESS,第一条链路施工中
+REQ-010,关键事实可追溯与真实数据原则,机场库与评测,SOURCES.csv/AirportCard,数据源溯源检查,严禁虚构实测与价格/未知标注待核实,PASSED,无

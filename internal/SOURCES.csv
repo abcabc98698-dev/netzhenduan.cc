@@ -1,0 +1,6 @@
+source_id,fact_scope,source_name,source_path_or_url,fetched_date,target_entities,data_timestamp,trust_scope,related_pages
+SRC-001,42家机场品牌原始数据与价格,42家机场品牌清单.txt,c:/Users/Pro User/Desktop/机场品牌信息/42家机场品牌清单.txt,2026-10-24,28家完整+14家简易品牌,2026-10-19实测标注,官方公开套餐与实测记录,docs/airports/*
+SRC-002,第三方代理客户端清单与架构,第三方代理客户端.txt,c:/Users/Pro User/Desktop/机场品牌信息/第三方代理客户端.txt,2026-10-24,Clash Verge/v2rayN/v2rayNG/Shadowrocket等,2026最新开源项目状态,GitHub官方项目与文档,docs/clients/*
+SRC-003,品牌图表视觉与可观测性规范,机场品牌图表样式.txt,c:/Users/Pro User/Desktop/机场品牌信息/机场品牌图表样式.txt,2026-10-24,测速图/解锁图/拓扑图设计标准,2026网络实验室规范,设计系统与CSS规范,docs/.vitepress/theme/*
+SRC-004,机场内容矩阵与SEO结构规范,内容矩阵.txt,c:/Users/Pro User/Desktop/机场品牌信息/内容矩阵.txt,2026-10-24,品牌库/大纲/关键词映射,2026标准,内容架构标准,internal/*
+SRC-005,网站内容全量落地总指令,网站内容全量落地总指令.txt,c:/Users/Pro User/Desktop/网站总管理/网站内容全量落地总指令.txt,2026-10-24,全站落地/台账/质量标准/字数/模块,2026-10-24终极准则,全站执行总纲,全站所有文件

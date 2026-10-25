@@ -1,0 +1,25 @@
+{
+  "name": "netzhenduan-cc",
+  "version": "1.0.0",
+  "description": "科学上网故障排查与网络诊断知识库 - netzhenduan.cc",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "科学上网无法连接",
+    "梯子连不上",
+    "机场订阅失败",
+    "Clash无法连接",
+    "代理速度慢",
+    "网络诊断"
+  ],
+  "author": "netzhenduan.cc",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.5.0",
+    "vue": "^3.5.12"
+  }
+}

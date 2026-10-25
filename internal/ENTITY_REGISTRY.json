@@ -1,0 +1,997 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-24",
+  "entities": {
+    "airports": [
+      {
+        "id": "brand-guangsu",
+        "name": "光速云",
+        "aliases": [
+          "Guangsu",
+          "光速云"
+        ],
+        "rank": 1,
+        "is_primary": true,
+        "architecture": "IEPL + 企业内网专线 (双架构)",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 9969,
+        "cycle": "年付",
+        "monthly_equiv": 8.25,
+        "promo_code": "AMM",
+        "client_mode": "自研客户端 + 第三方(Clash/小火箭)",
+        "aff_url": "https://sahude.gsyvipaff.com/#/?code=keqgvT5Y",
+        "features": "主打双专线架构，晚高峰0丢包；致敬斯诺克147永久套餐247GB；覆盖11+国家/地区"
+      },
+      {
+        "id": "brand-feimao",
+        "name": "飞猫云",
+        "aliases": [
+          "Feimao",
+          "飞猫云"
+        ],
+        "rank": 2,
+        "is_primary": false,
+        "architecture": "专线直连",
+        "protocols": [
+          "专属协议"
+        ],
+        "starting_price": 8450,
+        "cycle": "年付",
+        "monthly_equiv": 7,
+        "promo_code": "flycat888",
+        "client_mode": "官方专属客户端 (免配订阅)",
+        "aff_url": "https://guangs.flycataff.com/#/?code=6uq0Xe9y",
+        "features": "新手首选，专属客户端下载登录即用，免配置订阅；亚太/欧美热门节点"
+      },
+      {
+        "id": "brand-weifeng",
+        "name": "微风网络",
+        "aliases": [
+          "Weifeng",
+          "微风网络"
+        ],
+        "rank": 3,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 137100,
+        "cycle": "年付",
+        "monthly_equiv": 11.4,
+        "promo_code": "flat888",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://edp01.breezenetaff.com/#/?code=t3huofyI",
+        "features": "入门高性价比专线，覆盖港新日美原生IP节点；7×24小时在线客服"
+      },
+      {
+        "id": "brand-muguang",
+        "name": "暮光加速",
+        "aliases": [
+          "Muguang",
+          "暮光加速"
+        ],
+        "rank": 4,
+        "is_primary": false,
+        "architecture": "BGP 智能调度 + 专线出口",
+        "protocols": [
+          "VLESS",
+          "VMess"
+        ],
+        "starting_price": 20120,
+        "cycle": "月付",
+        "monthly_equiv": 20,
+        "promo_code": "muguang5555",
+        "client_mode": "全平台兼容 (Win/Mac/iOS/Android/Linux)",
+        "aff_url": "https://varnexa.twilightaff.com/#/?code=D1LHglg3",
+        "features": "BGP多线调度，120GB~1500GB多档可选；多设备不限并发连接"
+      },
+      {
+        "id": "brand-dalaoyun",
+        "name": "大佬云",
+        "aliases": [
+          "Dalaoyun",
+          "大佬云"
+        ],
+        "rank": 5,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 5.66,
+        "cycle": "年付",
+        "monthly_equiv": 5.6,
+        "promo_code": "dly888",
+        "client_mode": "自研端 + 第三方订阅导入",
+        "aff_url": "https://qwerty.dalaoyunaff.com/#/?code=jCPLmoWN",
+        "features": "极低月付门槛，季付及以上7折；平价备用容灾优选"
+      },
+      {
+        "id": "brand-xingdaomeng",
+        "name": "星岛梦",
+        "aliases": [
+          "Xingdaomeng",
+          "星岛梦"
+        ],
+        "rank": 6,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "Trojan"
+        ],
+        "starting_price": 9660,
+        "cycle": "年付",
+        "monthly_equiv": 8,
+        "promo_code": "nmw888",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://guangs.xingdaomeng.com/#/?code=1TynBYnR",
+        "features": "2020年老牌运营，全节点1倍率计费，不限设备数；提供不限时套餐"
+      },
+      {
+        "id": "brand-ermaoyun",
+        "name": "二猫云",
+        "aliases": [
+          "Ermaoyun",
+          "二猫云"
+        ],
+        "rank": 7,
+        "is_primary": false,
+        "architecture": "纯 IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 8960,
+        "cycle": "年付",
+        "monthly_equiv": 7.4,
+        "promo_code": "ermao5555",
+        "client_mode": "专属端 + 订阅导入",
+        "aff_url": "https://guangs.2maoyunaff.cc/#/?code=7mjvgGbW",
+        "features": "海外技术团队主理，全线IEPL专线，主打长期稳定不超售"
+      },
+      {
+        "id": "brand-wuyoulink",
+        "name": "无忧链接",
+        "aliases": [
+          "Wuyoulink",
+          "无忧链接"
+        ],
+        "rank": 8,
+        "is_primary": false,
+        "architecture": "专线直连",
+        "protocols": [
+          "专属协议"
+        ],
+        "starting_price": 7940,
+        "cycle": "年付",
+        "monthly_equiv": 6.58,
+        "promo_code": "wuyou666",
+        "client_mode": "官方专属客户端 (免转换订阅)",
+        "aff_url": "https://wep01.worryfreeaff.com/#/?code=4ZoSbLdL",
+        "features": "订阅无需复杂转换，6元轻量起步；跨境电商与TikTok专线直连"
+      },
+      {
+        "id": "brand-weituyun",
+        "name": "唯兔云",
+        "aliases": [
+          "Weituyun",
+          "唯兔云"
+        ],
+        "rank": 9,
+        "is_primary": false,
+        "architecture": "IPLC 专线",
+        "protocols": [
+          "Trojan"
+        ],
+        "starting_price": 79.945,
+        "cycle": "年付",
+        "monthly_equiv": 6.65,
+        "promo_code": "weitu666",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://guangs.v2yunvipaff.com/#/?code=xIutqOBA",
+        "features": "60+节点覆盖，三网BGP优化与智能负载均衡；多协议支持"
+      },
+      {
+        "id": "brand-firefly",
+        "name": "Firefly",
+        "aliases": [
+          "Firefly",
+          "Firefly"
+        ],
+        "rank": 10,
+        "is_primary": false,
+        "architecture": "IPLC 纯专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 9660,
+        "cycle": "年付",
+        "monthly_equiv": 8,
+        "promo_code": "firefly",
+        "client_mode": "专属客户端 + 兼容订阅",
+        "aff_url": "https://vip02.fireflyaff.com/#/?code=2n7VURre",
+        "features": "IPLC专线+VLESS，免翻墙访问官网，支持不限速不限设备"
+      },
+      {
+        "id": "brand-yuzhouyun",
+        "name": "宇宙云",
+        "aliases": [
+          "Yuzhouyun",
+          "宇宙云"
+        ],
+        "rank": 11,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 18100,
+        "cycle": "月付",
+        "monthly_equiv": 18,
+        "promo_code": "YUZHOU553",
+        "client_mode": "自研客户端 + 订阅导入",
+        "aff_url": "https://wzjc.yuzoucloud.cc/#/?code=yrThwMP1",
+        "features": "IEPL+VLESS自研客户端，界面清爽，支持快捷一键连接"
+      },
+      {
+        "id": "brand-u1s1",
+        "name": "U1S1",
+        "aliases": [
+          "U1S1",
+          "U1S1"
+        ],
+        "rank": 12,
+        "is_primary": false,
+        "architecture": "IPLC 专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 20120,
+        "cycle": "月付",
+        "monthly_equiv": 20,
+        "promo_code": "akaka",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://guangs.vipaff.cc/#/?code=xhX5X22f",
+        "features": "20元120GB标准月付方案，大带宽节点配置，适合大流量下载"
+      },
+      {
+        "id": "brand-civetnet",
+        "name": "灵猫网络",
+        "aliases": [
+          "CivetNet",
+          "灵猫网络"
+        ],
+        "rank": 13,
+        "is_primary": false,
+        "architecture": "中转优化",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 8545,
+        "cycle": "年付",
+        "monthly_equiv": 7.08,
+        "promo_code": "lmao888",
+        "client_mode": "专属客户端",
+        "aff_url": "https://vip01.civetnet.com/#/?code=8MIAyxak",
+        "features": "19元150GB周期档 + 提供不限时流量套餐，适合长周期弹性使用"
+      },
+      {
+        "id": "brand-jilianyun",
+        "name": "极连云",
+        "aliases": [
+          "Jilianyun",
+          "极连云"
+        ],
+        "rank": 14,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 18100,
+        "cycle": "月付",
+        "monthly_equiv": 18,
+        "promo_code": "ji8888",
+        "client_mode": "自研端 + 第三方导入",
+        "aff_url": "https://guangs.jlyvipaff.com/#/?code=VM1rKGUu",
+        "features": "18元100GB入门档，资料标注全线专线低延迟"
+      },
+      {
+        "id": "brand-guangnianti",
+        "name": "光年梯",
+        "aliases": [
+          "Guangnianti",
+          "光年梯"
+        ],
+        "rank": 15,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 18110,
+        "cycle": "月付",
+        "monthly_equiv": 18,
+        "promo_code": "gnt6666",
+        "client_mode": "自研端 + 第三方导入",
+        "aff_url": "https://guangs.gntaff.com/#/?code=X1FoxjGE",
+        "features": "同等价格下提供额外10GB流量福利，支持全平台订阅"
+      },
+      {
+        "id": "brand-yifanyun",
+        "name": "一翻云",
+        "aliases": [
+          "Yifanyun",
+          "一翻云"
+        ],
+        "rank": 16,
+        "is_primary": false,
+        "architecture": "IEPL 物理专线",
+        "protocols": [
+          "Hysteria 2",
+          "VLESS"
+        ],
+        "starting_price": 20150,
+        "cycle": "月付",
+        "monthly_equiv": 20,
+        "promo_code": "yfy6666",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://guangs.1flyunaff.cc/#/register?code=Yr7FhB7r",
+        "features": "支持Hysteria 2高速UDP协议与VLESS，晚高峰高穿透抗阻断"
+      },
+      {
+        "id": "brand-sogoyun",
+        "name": "SOGO 云",
+        "aliases": [
+          "Sogoyun",
+          "SOGO 云"
+        ],
+        "rank": 17,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 9860,
+        "cycle": "年付",
+        "monthly_equiv": 8.17,
+        "promo_code": "sss777",
+        "client_mode": "专属客户端 (无需配订阅)",
+        "aff_url": "https://guangs.sogoyunaff.cc/#/?code=327Vs0w7",
+        "features": "2026年新晋品牌，专属客户端一键连接，节点覆盖范围广"
+      },
+      {
+        "id": "brand-kexinyun",
+        "name": "可信云",
+        "aliases": [
+          "Kexinyun",
+          "可信云"
+        ],
+        "rank": 18,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 18100,
+        "cycle": "月付",
+        "monthly_equiv": 18,
+        "promo_code": "kkk333",
+        "client_mode": "第三方导入",
+        "aff_url": "https://guangs.kosingaff.com/#/register?code=UYDtNlCY",
+        "features": "资料诚实标注数据缺口，不夸大宣传；基础线路稳定"
+      },
+      {
+        "id": "brand-sujie",
+        "name": "速界",
+        "aliases": [
+          "Sujie",
+          "速界"
+        ],
+        "rank": 19,
+        "is_primary": false,
+        "architecture": "BGP 专线中继",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 22120,
+        "cycle": "月付",
+        "monthly_equiv": 22,
+        "promo_code": "sss1111",
+        "client_mode": "第三方导入",
+        "aff_url": "https://guangs.speedworldaff.cc/#/register?code=xgXzEfZB",
+        "features": "专注针对 ChatGPT/Claude 的网络调度与高可用保障"
+      },
+      {
+        "id": "brand-shanyue",
+        "name": "闪跃",
+        "aliases": [
+          "Shanyue",
+          "闪跃"
+        ],
+        "rank": 20,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 24150,
+        "cycle": "月付",
+        "monthly_equiv": 24,
+        "promo_code": "shanyue",
+        "client_mode": "专属客户端 + 兼容订阅",
+        "aff_url": "https://vip02.flashleapaff.com/#/?code=3lgzm9mm",
+        "features": "24元150GB高规格流量档，节点响应快"
+      },
+      {
+        "id": "brand-quanqiuyun",
+        "name": "全球云",
+        "aliases": [
+          "Quanqiuyun",
+          "全球云"
+        ],
+        "rank": 21,
+        "is_primary": false,
+        "architecture": "多线中转优化",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 19100,
+        "cycle": "月付",
+        "monthly_equiv": 19,
+        "promo_code": "qqy7777",
+        "client_mode": "第三方客户端",
+        "aff_url": "https://guangs.gcvipaff.com/#/?code=Ov2nvU9C",
+        "features": "2026年新品牌，全球多国小众节点补充"
+      },
+      {
+        "id": "brand-shandianshu",
+        "name": "闪电鼠",
+        "aliases": [
+          "Shandianshu",
+          "闪电鼠"
+        ],
+        "rank": 22,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 5.66,
+        "cycle": "年付",
+        "monthly_equiv": 5.6,
+        "promo_code": "sd88",
+        "client_mode": "自研端 + 第三方",
+        "aff_url": "https://qwerty.shandianshuaff.com/#/?code=rUE75iYh",
+        "features": "5.6元/月平价规格，适合轻量备用"
+      },
+      {
+        "id": "brand-yunjiexian",
+        "name": "云界线",
+        "aliases": [
+          "Yunjiexian",
+          "云界线"
+        ],
+        "rank": 23,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 5.66,
+        "cycle": "年付",
+        "monthly_equiv": 5.6,
+        "promo_code": "yjx888",
+        "client_mode": "自研端 + 第三方",
+        "aff_url": "https://qwerty.yunjiexianaff.com/?code=HBaZ91c6",
+        "features": "低门槛平价专线，提供多端基础接入"
+      },
+      {
+        "id": "brand-liulianyun",
+        "name": "榴莲云",
+        "aliases": [
+          "Liulianyun",
+          "榴莲云"
+        ],
+        "rank": 24,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 5.66,
+        "cycle": "年付",
+        "monthly_equiv": 5.6,
+        "promo_code": "ll88",
+        "client_mode": "自研端 + 第三方",
+        "aff_url": "https://qwerty.liulianyunaff.com#/?code=hS5pvbfE",
+        "features": "平价入门专线，60GB月流量规格"
+      },
+      {
+        "id": "brand-shenxing",
+        "name": "神行加速",
+        "aliases": [
+          "Shenxing",
+          "神行加速"
+        ],
+        "rank": 25,
+        "is_primary": false,
+        "architecture": "中继专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 14120,
+        "cycle": "月付",
+        "monthly_equiv": 14,
+        "promo_code": "xs0077",
+        "client_mode": "第三方兼容",
+        "aff_url": "https://qwerty.shenxingaff.com/#/?code=gawDQqVE",
+        "features": "14元/月居中定价，提供120GB大流量支持"
+      },
+      {
+        "id": "brand-huanqiuti",
+        "name": "环球梯",
+        "aliases": [
+          "Huanqiuti",
+          "环球梯"
+        ],
+        "rank": 26,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 5.66,
+        "cycle": "年付",
+        "monthly_equiv": 5.6,
+        "promo_code": "HQ66",
+        "client_mode": "自研端 + 第三方",
+        "aff_url": "https://qwerty.huanqiutiaff.com/?code=9I4KRNPH",
+        "features": "平价入门机场，适合低成本应急"
+      },
+      {
+        "id": "brand-yinxingren",
+        "name": "隐形人",
+        "aliases": [
+          "Yinxingren",
+          "隐形人"
+        ],
+        "rank": 27,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "专属协议"
+        ],
+        "starting_price": 22100,
+        "cycle": "月付",
+        "monthly_equiv": 22,
+        "promo_code": "yxr888",
+        "client_mode": "官方专属客户端 (不提供第三方订阅)",
+        "aff_url": "https://yinxingren1.invisibleaff.com/#/?code=kcyEeoJT",
+        "features": "60+节点详细清单，承诺1小时快速修复；专属客户端保障防封"
+      },
+      {
+        "id": "brand-tiziyun",
+        "name": "梯子云",
+        "aliases": [
+          "Tiziyun",
+          "梯子云"
+        ],
+        "rank": 28,
+        "is_primary": false,
+        "architecture": "企业专线",
+        "protocols": [
+          "多协议自适应"
+        ],
+        "starting_price": 25150,
+        "cycle": "月付",
+        "monthly_equiv": 25,
+        "promo_code": "tiziyun",
+        "client_mode": "自研全平台端 + 支持通用订阅",
+        "aff_url": "https://tiziyun3.ladderaff.com/#/?code=7EmnpHs0",
+        "features": "自研全平台客户端一键登录，同时保留第三方订阅自由导入"
+      },
+      {
+        "id": "brand-wgetcloud",
+        "name": "WgetCloud",
+        "aliases": [
+          "WgetCloud",
+          "WgetCloud"
+        ],
+        "rank": 29,
+        "is_primary": false,
+        "architecture": "BGP 多线 + 优质专线",
+        "protocols": [
+          "Trojan"
+        ],
+        "starting_price": 297230,
+        "cycle": "季付",
+        "monthly_equiv": 99,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://invite.wgetcloud.ltd/auth/register?code=VLG2xb",
+        "features": "高端品牌定位；历史测速59节点全部非零，欧美亚平均下载超50MB/s"
+      },
+      {
+        "id": "brand-baiyueguang",
+        "name": "白月光",
+        "aliases": [
+          "Baiyueguang",
+          "白月光"
+        ],
+        "rank": 30,
+        "is_primary": false,
+        "architecture": "公网中转 + 专线",
+        "protocols": [
+          "Shadowsocks"
+        ],
+        "starting_price": 66100,
+        "cycle": "季付",
+        "monthly_equiv": 22,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://www.sibker.com/register?invite_code=gg6puAId",
+        "features": "季付66元门槛亲民，节点地区名目丰富，香港/新/日全连通"
+      },
+      {
+        "id": "brand-flyingbird",
+        "name": "FlyingBird",
+        "aliases": [
+          "FlyingBird",
+          "FlyingBird"
+        ],
+        "rank": 31,
+        "is_primary": false,
+        "architecture": "全专线 IPLC",
+        "protocols": [
+          "Shadowsocks"
+        ],
+        "starting_price": 150100,
+        "cycle": "季付",
+        "monthly_equiv": 50,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "以SS全专线IPLC、无倍率和不限速为主要卖点，一云梯/飞鸟同源"
+      },
+      {
+        "id": "brand-cyberguard",
+        "name": "CyberGuard",
+        "aliases": [
+          "CyberGuard",
+          "CyberGuard"
+        ],
+        "rank": 32,
+        "is_primary": false,
+        "architecture": "专线优化中继",
+        "protocols": [
+          "Trojan"
+        ],
+        "starting_price": 32120,
+        "cycle": "月付",
+        "monthly_equiv": 32,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "真实月付¥32起，6档套餐可选，历史实测亚洲近端延迟表现良好"
+      },
+      {
+        "id": "brand-longmaoyun",
+        "name": "龙猫云",
+        "aliases": [
+          "Longmaoyun",
+          "龙猫云"
+        ],
+        "rank": 33,
+        "is_primary": false,
+        "architecture": "多线中转",
+        "protocols": [
+          "Shadowsocks"
+        ],
+        "starting_price": 60100,
+        "cycle": "季付",
+        "monthly_equiv": 20,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "亲民价格档位，覆盖常见亚欧美节点"
+      },
+      {
+        "id": "brand-fatcat",
+        "name": "FATCAT",
+        "aliases": [
+          "FATCAT",
+          "FATCAT"
+        ],
+        "rank": 34,
+        "is_primary": false,
+        "architecture": "IPLC 专线",
+        "protocols": [
+          "Shadowsocks"
+        ],
+        "starting_price": 120100,
+        "cycle": "年付",
+        "monthly_equiv": 20,
+        "promo_code": "待核实",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "主打胖猫无倍率直通，半年付低门槛入场"
+      },
+      {
+        "id": "brand-tntcloud",
+        "name": "TNTCloud",
+        "aliases": [
+          "TNTCloud",
+          "TNTCloud"
+        ],
+        "rank": 35,
+        "is_primary": false,
+        "architecture": "BGP 多线中继",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 18100,
+        "cycle": "月付",
+        "monthly_equiv": 18,
+        "promo_code": "tnt2024",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "提供新用户折扣优惠，BGP多线自动容灾"
+      },
+      {
+        "id": "brand-qingyunti",
+        "name": "青云梯",
+        "aliases": [
+          "Qingyunti",
+          "青云梯"
+        ],
+        "rank": 36,
+        "is_primary": false,
+        "architecture": "企业级 IPLC + 三网优化",
+        "protocols": [
+          "Shadowsocks"
+        ],
+        "starting_price": 25120,
+        "cycle": "月付",
+        "monthly_equiv": 25,
+        "promo_code": "qyt85",
+        "client_mode": "兼容第三方 + 企业定制",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "运营六年成熟品牌，企业级IPLC专线与三网优化，支持企业级定制"
+      },
+      {
+        "id": "brand-shanshuiyun",
+        "name": "山水云",
+        "aliases": [
+          "Shanshuiyun",
+          "山水云"
+        ],
+        "rank": 37,
+        "is_primary": false,
+        "architecture": "高速中继专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 15100,
+        "cycle": "月付",
+        "monthly_equiv": 15,
+        "promo_code": "待核实",
+        "client_mode": "第三方导入",
+        "aff_url": "https://sldm1.ssyylf.com/#/register?code=YD5iQ888",
+        "features": "月付15元亲民门槛，64G轻量年付仅88元；三档月付梯度明确"
+      },
+      {
+        "id": "brand-lingdongyun",
+        "name": "灵动云",
+        "aliases": [
+          "Lingdongyun",
+          "灵动云"
+        ],
+        "rank": 38,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 7070,
+        "cycle": "年付",
+        "monthly_equiv": 5.83,
+        "promo_code": "待核实",
+        "client_mode": "兼容第三方 + 私人定制",
+        "aff_url": "https://varnexa.lingdongaff.com/#/?code=wZvEhEoI",
+        "features": "2025年开业IEPL专线，单次流量包与定制齐全；实测OpenAI解锁出色"
+      },
+      {
+        "id": "brand-wavenet",
+        "name": "浪网",
+        "aliases": [
+          "WaveNet",
+          "浪网"
+        ],
+        "rank": 39,
+        "is_primary": false,
+        "architecture": "IEPL 专线",
+        "protocols": [
+          "待核实"
+        ],
+        "starting_price": 30150,
+        "cycle": "月付",
+        "monthly_equiv": 30,
+        "promo_code": "待核实",
+        "client_mode": "第三方导入",
+        "aff_url": "https://varnexa.wavenetaff.com/#/?code=xwAM4tTd",
+        "features": "IEPL专线定位，提供入门/进阶/高端/商业及定制线路等多层级方案"
+      },
+      {
+        "id": "brand-edgenova",
+        "name": "EdgeNova",
+        "aliases": [
+          "EdgeNova",
+          "EdgeNova"
+        ],
+        "rank": 40,
+        "is_primary": false,
+        "architecture": "高速直连 / IPLC",
+        "protocols": [
+          "多协议支持"
+        ],
+        "starting_price": 1572,
+        "cycle": "月付",
+        "monthly_equiv": 15,
+        "promo_code": "TH888",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://work.edgenovaaff.cc/#/register?code=cl3iB5YG",
+        "features": "多线路自动分配定位，提供限时月付¥15与年付¥108，新用户8折优惠"
+      },
+      {
+        "id": "brand-yinghuchong",
+        "name": "萤火虫",
+        "aliases": [
+          "Yinghuchong",
+          "萤火虫"
+        ],
+        "rank": 41,
+        "is_primary": false,
+        "architecture": "IPLC 专线",
+        "protocols": [
+          "VLESS"
+        ],
+        "starting_price": 9660,
+        "cycle": "年付",
+        "monthly_equiv": 8,
+        "promo_code": "firefly",
+        "client_mode": "兼容主流第三方客户端",
+        "aff_url": "https://vip02.fireflyaff.com/#/?code=jTp9wSgZ",
+        "features": "现有资料记录8年团队，IPLC+VLESS，宣称不限速不限设备原生IP"
+      },
+      {
+        "id": "brand-sslar",
+        "name": "sslar",
+        "aliases": [
+          "SSLAR",
+          "sslar"
+        ],
+        "rank": 42,
+        "is_primary": false,
+        "architecture": "企业级 IEPL + 多线 BGP",
+        "protocols": [
+          "SS",
+          "VLESS 自适应"
+        ],
+        "starting_price": 17100,
+        "cycle": "月付",
+        "monthly_equiv": 17,
+        "promo_code": "ko3eTt0w",
+        "client_mode": "自研端(Win/Mac/安卓) + 远程协助",
+        "aff_url": "待核实 (未提供独立入口)",
+        "features": "自研多平台客户端自适应SS/VLESS协议，提供远程桌面协助服务"
+      }
+    ],
+    "clients": [
+      {
+        "id": "client-clash-verge-rev",
+        "name": "Clash Verge Rev",
+        "core": "Mihomo (Clash.Meta)",
+        "platforms": [
+          "Windows",
+          "macOS",
+          "Linux"
+        ],
+        "type": "第三方开源图形客户端",
+        "features": [
+          "TUN模式",
+          "分流规则",
+          "订阅管理",
+          "脚本覆写"
+        ]
+      },
+      {
+        "id": "client-v2rayn",
+        "name": "v2rayN",
+        "core": "Xray / sing-box",
+        "platforms": [
+          "Windows"
+        ],
+        "type": "第三方开源客户端",
+        "features": [
+          "多协议支持",
+          "分流路由",
+          "测速统计",
+          "TUN虚拟网卡"
+        ]
+      },
+      {
+        "id": "client-v2rayng",
+        "name": "v2rayNG",
+        "core": "Xray",
+        "platforms": [
+          "Android"
+        ],
+        "type": "第三方开源移动端",
+        "features": [
+          "分应用代理",
+          "订阅更新",
+          "低电耗保活"
+        ]
+      },
+      {
+        "id": "client-shadowrocket",
+        "name": "Shadowrocket",
+        "core": "Shadowrocket Core",
+        "platforms": [
+          "iOS",
+          "iPadOS"
+        ],
+        "type": "iOS独立付费应用",
+        "features": [
+          "规则分流",
+          "HTTPS解密",
+          "节点单次测速"
+        ]
+      }
+    ],
+    "protocols": [
+      {
+        "id": "proto-vless",
+        "name": "VLESS",
+        "type": "应用代理协议",
+        "features": [
+          "无状态",
+          "高性能",
+          "支持Reality加密指纹"
+        ]
+      },
+      {
+        "id": "proto-iepl",
+        "name": "IEPL",
+        "type": "物理专线",
+        "features": [
+          "端到端内网",
+          "不经公网GFW",
+          "晚高峰0丢包"
+        ]
+      },
+      {
+        "id": "proto-iplc",
+        "name": "IPLC",
+        "type": "物理专线",
+        "features": [
+          "点对点专线",
+          "超低延迟",
+          "抗封锁"
+        ]
+      },
+      {
+        "id": "proto-bgp",
+        "name": "BGP中转",
+        "type": "网络调度架构",
+        "features": [
+          "三网优化接入",
+          "自动故障切换"
+        ]
+      }
+    ]
+  }
+}

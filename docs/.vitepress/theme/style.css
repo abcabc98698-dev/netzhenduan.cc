@@ -1,0 +1,354 @@
+:root {
+  --vp-c-brand-1: #06b6d4;
+  --vp-c-brand-2: #0284c7;
+  --vp-c-brand-3: #0369a1;
+  --vp-c-brand-soft: rgba(6, 182, 212, 0.12);
+
+  /* Light Theme Variables */
+  --table-header-bg: #f8fafc;
+  --table-border: #e2e8f0;
+  --table-zebra-bg: rgba(241, 245, 249, 0.65);
+  --table-hover-bg: #f1f5f9;
+  --diag-card-bg: #ffffff;
+  --diag-card-border: #e2e8f0;
+  --diag-card-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --vp-c-bg: #090d16;
+  --vp-c-bg-soft: #0f172a;
+  --vp-c-bg-alt: #131d31;
+  --vp-c-border: #1e293b;
+  --vp-c-divider: #1e293b;
+  --vp-c-gutter: #0f172a;
+
+  /* Dark Theme Variables */
+  --table-header-bg: #0f172a;
+  --table-border: #1e293b;
+  --table-zebra-bg: rgba(255, 255, 255, 0.025);
+  --table-hover-bg: rgba(56, 189, 248, 0.05);
+  --diag-card-bg: #0f172a;
+  --diag-card-border: #1e293b;
+  --diag-card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+}
+
+/* ========================================================
+   RELAXED READING MODE (宽松阅读模式)
+   ======================================================== */
+.vp-doc {
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+.vp-doc p {
+  margin: 18px 0;
+  line-height: 1.8;
+}
+
+.vp-doc li {
+  margin: 8px 0;
+  line-height: 1.75;
+}
+
+.vp-doc h1 {
+  font-size: 28px;
+  line-height: 1.35;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.vp-doc h2 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-top: 42px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--table-border);
+  font-weight: 600;
+}
+
+.vp-doc h3 {
+  font-size: 18px;
+  line-height: 1.45;
+  margin-top: 30px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.vp-doc strong {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+/* Typography & Monospace */
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: "tnum";
+}
+
+/* Custom Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  border: 1px solid transparent;
+}
+
+.status-badge.operational {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.status-badge.partial {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.status-badge.down {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.green { background: #10b981; box-shadow: 0 0 6px #10b981; }
+.status-dot.yellow { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+.status-dot.red { background: #ef4444; box-shadow: 0 0 6px #ef4444; }
+
+/* Diagnostic Callout Card */
+.diag-card {
+  background: var(--diag-card-bg);
+  border: 1px solid var(--diag-card-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  box-shadow: var(--diag-card-shadow);
+  transition: border-color 0.2s;
+}
+
+/* ========================================================
+   GLOBAL MARKDOWN TABLE FORMATTING & RESPONSIVE SCROLL
+   ======================================================== */
+.vp-doc table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid var(--table-border);
+  border-radius: 6px;
+}
+
+.vp-doc th {
+  background-color: var(--table-header-bg);
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid var(--table-border);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.vp-doc td {
+  padding: 12px 16px;
+  border: 1px solid var(--table-border);
+  color: var(--vp-c-text-1);
+  vertical-align: middle;
+}
+
+/* Clean, theme-aware alternating zebra rows */
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--table-zebra-bg);
+}
+
+.vp-doc tr:hover td {
+  background-color: var(--table-hover-bg);
+}
+
+.vp-doc td code {
+  white-space: nowrap;
+  font-size: 12.5px;
+}
+
+/* Specific Dedicated Table Container for Giant 42-Brand Table */
+.table-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 28px 0;
+  border: 1px solid var(--table-border);
+  border-radius: 8px;
+  box-shadow: var(--diag-card-shadow);
+}
+
+.table-scroll-container table {
+  min-width: 1080px;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  display: table;
+}
+
+.table-scroll-container th {
+  border-top: none;
+  font-size: 13.5px;
+  padding: 12px 16px;
+}
+
+.table-scroll-container td {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.table-scroll-container th:first-child,
+.table-scroll-container td:first-child {
+  border-left: none;
+}
+
+.table-scroll-container th:last-child,
+.table-scroll-container td:last-child {
+  border-right: none;
+}
+
+/* Strict wrapping rules for table columns to prevent weird breaks */
+.table-scroll-container td:nth-child(1), /* 品牌名称 */
+.table-scroll-container td:nth-child(2), /* 市场排名 */
+.table-scroll-container td:nth-child(4), /* 底层协议 */
+.table-scroll-container td:nth-child(6), /* 起步套餐门槛 */
+.table-scroll-container td:nth-child(7), /* 折合月价 */
+.table-scroll-container td:nth-child(8), /* 晚高峰香港延迟/速度 */
+.table-scroll-container td:nth-child(10) /* 专属优惠码 */ {
+  white-space: nowrap;
+  font-feature-settings: "tnum";
+}
+
+.table-scroll-container td:nth-child(3), /* 线路类型 */
+.table-scroll-container td:nth-child(5)  /* 客户端模式 */ {
+  min-width: 160px;
+}
+
+.table-scroll-container td:nth-child(9)  /* AI/流媒体支持 */ {
+  min-width: 190px;
+}
+
+/* Subtle scrollbar aesthetic */
+.vp-doc table::-webkit-scrollbar,
+.table-scroll-container::-webkit-scrollbar,
+.table-wrapper::-webkit-scrollbar {
+  height: 7px;
+}
+
+.vp-doc table::-webkit-scrollbar-track,
+.table-scroll-container::-webkit-scrollbar-track,
+.table-wrapper::-webkit-scrollbar-track {
+  background: var(--table-zebra-bg);
+}
+
+.vp-doc table::-webkit-scrollbar-thumb,
+.table-scroll-container::-webkit-scrollbar-thumb,
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--table-border);
+  border-radius: 4px;
+}
+
+.vp-doc table::-webkit-scrollbar-thumb:hover,
+.table-scroll-container::-webkit-scrollbar-thumb:hover,
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Pre / Code block enhancements */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 22px 0;
+  border: 1px solid var(--table-border);
+}
+
+.vp-doc pre {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Blockquote refinement */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-2);
+  margin: 22px 0;
+  padding: 14px 20px;
+  background: var(--table-zebra-bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.7;
+}
+
+/* Avatar & Logo styling */
+.VPNavBarTitle .logo {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid var(--vp-c-brand-1);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.VPNavBarTitle .logo:hover {
+  transform: rotate(12deg) scale(1.08);
+}
+
+.VPHero .image-src {
+  border-radius: 50% !important;
+  max-width: 240px !important;
+  max-height: 240px !important;
+  object-fit: cover !important;
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.4), 0 0 15px rgba(56, 189, 248, 0.3);
+  border: 3px solid rgba(6, 182, 212, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.VPHero .image-src:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(6, 182, 212, 0.65), 0 0 25px rgba(56, 189, 248, 0.5);
+}
+
+/* Mobile responsive tuning */
+@media (max-width: 768px) {
+  .vp-doc {
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .vp-doc h1 {
+    font-size: 24px;
+  }
+  .vp-doc h2 {
+    font-size: 20px;
+    margin-top: 32px;
+  }
+  .vp-doc h3 {
+    font-size: 17px;
+  }
+  .vp-doc th, .vp-doc td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .diag-card {
+    padding: 14px 16px;
+  }
+}

@@ -1,0 +1,67 @@
+# ====================================================================
+# netzhenduan.cc - Apache Web Server Configuration
+# Optimized for VitePress Static Site, Performance, Security & Clean URLs
+# ====================================================================
+
+RewriteEngine On
+RewriteBase /
+
+# 1. 强制 HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. 隐藏 .html 后缀 (Clean URLs)
+# 如果请求包含 .html，则外部重定向到不带 .html 的干净 URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# 如果对应的 .html 文件存在，则内部重定向
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 3. 联盟推广链接安全中转防漏权重 (/go/brand -> target)
+# 带有 X-Robots-Tag 防止搜索引擎爬虫抓取损耗整站 SEO 权重
+RewriteRule ^go/guangsu$ https://sahude.gsyvipaff.com/#/?code=keqgvT5Y [R=302,L]
+RewriteRule ^go/feimao$ https://guangs.flycataff.com/#/?code=6uq0Xe9y [R=302,L]
+RewriteRule ^go/weifeng$ https://edp01.breezenetaff.com/#/?code=t3huofyI [R=302,L]
+RewriteRule ^go/muguang$ https://varnexa.twilightaff.com/#/?code=D1LHglg3 [R=302,L]
+RewriteRule ^go/dalaoyun$ https://qwerty.dalaoyunaff.com/#/?code=jCPLmoWN [R=302,L]
+RewriteRule ^go/xingdaomeng$ https://guangs.xingdaomeng.com/#/?code=1TynBYnR [R=302,L]
+RewriteRule ^go/ermao$ https://guangs.2maoyunaff.cc/#/?code=7mjvgGbW [R=302,L]
+RewriteRule ^go/wuyou$ https://wep01.worryfreeaff.com/#/?code=4ZoSbLdL [R=302,L]
+RewriteRule ^go/weitu$ https://guangs.v2yunvipaff.com/#/?code=xIutqOBA [R=302,L]
+RewriteRule ^go/firefly$ https://vip02.fireflyaff.com/#/?code=2n7VURre [R=302,L]
+
+# 4. 自定义 404 页面
+ErrorDocument 404 /404.html
+
+# 5. Gzip 压缩传输 (mod_deflate)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 6. 浏览器长期缓存 (静态资源)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# 7. 安全响应头
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # 对 /go/ 路径设置 noindex
+  <FilesMatch "^go/">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
+</IfModule>
