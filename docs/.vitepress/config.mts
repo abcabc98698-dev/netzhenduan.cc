@@ -7,7 +7,15 @@ export default defineConfig({
   cleanUrls: true,
   appearance: 'dark',
   sitemap: {
-    hostname: 'https://netzhenduan.cc'
+    hostname: 'https://netzhenduan.cc',
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        lastmod: '2026-10-25T18:00:00+08:00',
+        changefreq: item.url === '' ? 'daily' : 'weekly',
+        priority: item.url === '' ? 1.0 : (item.url.startsWith('airports') || item.url.startsWith('issues') ? 0.9 : 0.8)
+      }))
+    }
   },
   transformPageData(pageData) {
     const canonicalUrl = `https://netzhenduan.cc/${pageData.relativePath}`
@@ -19,6 +27,148 @@ export default defineConfig({
       'link',
       { rel: 'canonical', href: canonicalUrl }
     ])
+
+    const pageTitle = pageData.title || pageData.frontmatter.title || '网络诊断实验室'
+    const pageDesc = pageData.description || pageData.frontmatter.description || '专注科学上网连不上、节点超时、订阅失败、Clash/v2ray报错等网络故障深度排查，提供在线网络探针、日志诊断与高可用专线备用方案。'
+    const isHome = pageData.relativePath === 'index.md'
+
+    if (isHome) {
+      const websiteSchema = {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            '@id': 'https://netzhenduan.cc/#website',
+            'url': 'https://netzhenduan.cc/',
+            'name': '网络诊断实验室',
+            'description': pageDesc,
+            'publisher': {
+              '@type': 'Organization',
+              '@id': 'https://netzhenduan.cc/#organization',
+              'name': '网络诊断实验室',
+              'url': 'https://netzhenduan.cc/',
+              'logo': 'https://netzhenduan.cc/avatar.jpg'
+            }
+          },
+          {
+            '@type': 'Organization',
+            '@id': 'https://netzhenduan.cc/#organization',
+            'name': '网络诊断实验室',
+            'url': 'https://netzhenduan.cc/',
+            'logo': 'https://netzhenduan.cc/avatar.jpg',
+            'description': '专注于网络工程可观测性、BGP Anycast / IEPL 专线质量监测、TLS/QUIC 协议级握手故障排查的专业工程实验机构。'
+          }
+        ]
+      }
+      pageData.frontmatter.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify(websiteSchema)
+      ])
+    } else {
+      const sectionNameMap: Record<string, string> = {
+        'issues': '科学上网故障排查',
+        'connection': '梯子连不上排查',
+        'clients': '客户端故障排查',
+        'subscription': '订阅配置故障',
+        'diagnostics': '网络诊断工具',
+        'tutorials': '使用教程手册',
+        'airports': '机场推荐与选购',
+        'free': '免费机场风险评估',
+        'about': '关于我们',
+        'methodology': '评测方法论',
+        'privacy': '隐私政策',
+        'terms': '服务条款',
+        'disclosure': '推广披露声明',
+        'connection-failures': '连接失败专题',
+        'timeout-failures': '节点超时专题',
+        'handshake-cipher': 'TLS握手与密码套件',
+        'streaming-unlock': '流媒体解锁与住宅IP',
+        'privacy-security-risks': '安全与隐私风险',
+        'mihomo-service': 'Mihomo服务模式',
+        'sing-box': 'Sing-box进阶',
+        'clash-verge': 'Clash Verge进阶',
+        'shadowrocket': '小火箭配置',
+        'surge': 'Surge高级策略',
+        'clash-meta': 'Clash Meta配置',
+        'v2rayn': 'v2rayN指南',
+        'v2rayng': 'v2rayNG指南',
+        'sub-store': 'Sub-Store配置',
+        'yaml-syntax': 'YAML语法修复',
+        'security-certs': '安全证书排障',
+        'native-ip-audit': '原生IP审计',
+        'mitm-sniffing': '流量嗅探分析',
+        'ntp-relay': 'NTP时钟与机房链路',
+        'gfw-sni-blocking': 'SNI阻断与端口跳跃',
+        'tls13-alpn': 'TLS1.3与ALPN协商'
+      }
+
+      const pathParts = pageData.relativePath.replace(/\.md$/, '').split('/').filter(Boolean)
+      const breadcrumbItems: any[] = [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': '首页',
+          'item': 'https://netzhenduan.cc/'
+        }
+      ]
+      let currentPath = 'https://netzhenduan.cc'
+      pathParts.forEach((part, index) => {
+        if (part === 'index') return
+        currentPath += `/${part}`
+        const isLast = index === pathParts.length - 1 || (index === pathParts.length - 2 && pathParts[pathParts.length - 1] === 'index')
+        const friendlyName = isLast ? pageTitle : (sectionNameMap[part] || part)
+        breadcrumbItems.push({
+          '@type': 'ListItem',
+          'position': breadcrumbItems.length + 1,
+          'name': friendlyName,
+          'item': currentPath
+        })
+      })
+
+      const isIndex = pageData.relativePath.endsWith('index.md')
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': breadcrumbItems
+      }
+
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': isIndex && pathParts.length <= 1 ? 'CollectionPage' : 'TechArticle',
+        '@id': `${canonicalUrl}#article`,
+        'headline': pageTitle,
+        'description': pageDesc,
+        'url': canonicalUrl,
+        'inLanguage': 'zh-CN',
+        'mainEntityOfPage': canonicalUrl,
+        'datePublished': '2026-10-25T12:00:00+08:00',
+        'dateModified': '2026-10-25T18:00:00+08:00',
+        'author': {
+          '@type': 'Organization',
+          'name': '网络诊断实验室技术专家组',
+          'url': 'https://netzhenduan.cc/about'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': '网络诊断实验室',
+          'url': 'https://netzhenduan.cc/',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://netzhenduan.cc/avatar.jpg'
+          }
+        }
+      }
+
+      pageData.frontmatter.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [breadcrumbSchema, articleSchema]
+        })
+      ])
+    }
   },
   head: [
     ['link', { rel: 'icon', href: '/avatar.jpg' }],
@@ -46,7 +196,17 @@ export default defineConfig({
       { text: '客户端手册', link: '/clients/' },
       { text: '使用教程', link: '/tutorials/' },
       { text: '机场推荐', link: '/airports/' },
-      { text: '免费机场', link: '/free/' }
+      { text: '免费机场', link: '/free/' },
+      {
+        text: '关于本站',
+        items: [
+          { text: '关于我们', link: '/about' },
+          { text: '评测方法论', link: '/methodology' },
+          { text: '推广披露', link: '/disclosure' },
+          { text: '隐私政策', link: '/privacy' },
+          { text: '服务条款', link: '/terms' }
+        ]
+      }
     ],
     sidebar: {
       '/issues/': [
@@ -423,8 +583,8 @@ export default defineConfig({
       next: '下一步排障操作'
     },
     footer: {
-      message: 'netzhenduan.cc 专注于网络可观测性、协议排障与客户端调试分析。',
-      copyright: 'Copyright © 2024-2026 netzhenduan.cc. All rights reserved. 严禁用于任何非法网络活动。'
+      message: '网络诊断实验室（NetZhenDuan.cc）坚持独立技术实测与客观数据呈现。部分测速与线路评测内容包含商业推广标记（Sponsored），返利佣金不影响最终评测结论与用户付费价格。',
+      copyright: 'Copyright © 2024-2026 网络诊断实验室 (NetZhenDuan.cc) All Rights Reserved. 严禁用于任何非法网络活动。'
     }
   }
 })

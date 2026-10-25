@@ -2,4 +2,20 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
+User-agent: Googlebot
+Allow: /
+Disallow: /go/
+
+User-agent: bingbot
+Allow: /
+Disallow: /go/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /go/
+
+User-agent: yisouspider
+Allow: /
+Disallow: /go/
+
 Sitemap: https://netzhenduan.cc/sitemap.xml
